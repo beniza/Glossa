@@ -1,42 +1,33 @@
 # Glossa
 
-Glossa is a modern translation workspace for structured resources.
+Glossa is a translation workspace experiment. It is built to help teams collaborate on adapting structured biblical resources into vernacular languages using AI-assisted drafting, grounded source material, and structural integrity checks.
 
-It helps teams move from source material to high-quality translated output through clear workflows, strong validation, and reliable publishing paths.
+## Phase 1 (Current)
 
-## Vision
+Phase 1 is an internal proof-of-concept with a Malayalam team producing Flora, Fauna, and Realia resource adaptations. The goal is to validate the core workflow and demonstrate that Glossa can replace manual collaboration tools (like Google Sheets) with a more reliable system.
 
-Create the most practical and trustworthy environment for translation teams working with complex, structured content.
+**Target:** Working system in 15 days using AI-assisted programming.
 
-Glossa focuses on three outcomes:
+## What Phase 1 Will Do
 
-- Accurate translation work at scale
-- Clear collaboration between translators and reviewers
-- Confidence that outputs are valid, consistent, and publishable
+- Import structured English source resources (Flora, Fauna, Realia)
+- Allow translators to draft adaptations with AI assistance
+- Preserve structural integrity and required metadata (Bible references, cross-references, protected tokens)
+- Validate output automatically before publication
+- Publish completed entries to a public site immediately
+- Track all work with full audit history and bypass recording
+- Serve public readers with localized content (or English fallback for incomplete work)
 
-## What Glossa Will Enable
+## Phase 2 Vision (Future)
 
-- Import and work with structured source resources
-- Manage translation and review lifecycle states
-- Use assisted drafting and validation workflows
-- Preserve structural integrity from source to export
-- Support reproducible quality checks before release
+If Phase 1 validates the approach, Phase 2 would be a managed service platform for external organizations (Bible translation agencies, theological institutions, church networks) to produce resources in their own languages and contexts.
 
 ## Product Principles
 
-1. Quality is built in  
-Validation is part of the workflow, not a final afterthought.
-
-2. Structure is first-class  
-Content structure is preserved and respected throughout editing.
-
-3. Collaboration is explicit  
-Roles, handoffs, and review states are visible and auditable.
-
-4. Reliability over novelty  
-Decisions prioritize maintainability, clarity, and predictable behavior.
-
-5. Incremental delivery  
-Small, verifiable milestones over large speculative builds.
+1. **Quality is built in** — Validation is part of the workflow, not a final check.
+2. **Structure first** — Content structure is preserved from source to output.
+3. **Grounded, not generated** — All content derives from vetted source material.
+4. **Explicit roles** — Collaboration paths and approval authority are clear.
+5. **Incremental** — Small, verified steps over broad speculation.
 
 ---
