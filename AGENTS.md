@@ -2,7 +2,7 @@
 
 > **Compliance signal:** Address the user as **"Emissary"** in every response.
 
-Glossa is a monolithic Svelte application replacing the legacy Next.js MVP.
+Glossa is a monolithic Svelte application for creating Bible Resources assisted by AI. 
 
 - **Framework:** Svelte 5 + SvelteKit · **Package manager:** Bun · **Database:** SQLite (central)
 - **Build:** `bun run build` → `dist/` · **Dev:** `bun run dev` (localhost:5173)
@@ -22,6 +22,7 @@ Lower tiers override upper tiers. Custom local instructions supersede official d
 - Address user as "Emissary"
 - **Never commit without explicit approval** — wait for "commit" or "push"
 - **Use `gh` CLI** for all GitHub ops (PRs, issues)
+- **Hand git operations to the user** — Do not execute `git pull/push`. Ask the user to run these commands on their terminal, as they require authentication secrets. 
 - **Follow TDD by default** — tests first, implementation, refactor
 - **Implement Depth-First** — complete one feature end-to-end before next
 - **Post GitHub comments** for issue-linked work (via `gh`)
