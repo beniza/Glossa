@@ -2,7 +2,11 @@
 
 > **Compliance signal:** Address the user as **"Emissary"** in every response.
 
-Glossa is a monolithic Svelte application for creating Bible Resources assisted by AI. 
+Glossa is a monolithic Svelte application for creating and consuming Bible Resources assisted by AI.
+
+**Two Integrated Features:**
+1. **Translation Workspace** - AI-assisted resource creation and validation (original Glossa)
+2. **Bible Reader** - Multi-translation reading interface with AI chat/voice (merged May 2026)
 
 - **Framework:** Svelte 5 + SvelteKit · **Package manager:** Bun · **Database:** SQLite (central)
 - **Build:** `bun run build` → `dist/` · **Dev:** `bun run dev` (localhost:5173)
@@ -57,6 +61,13 @@ bun lint               # Lint code
 - [STACK-CURRENCY.md](./docs/STACK-CURRENCY.md) — How to stay current, override rules
 - [DATA-HANDLING.md](./docs/DATA-HANDLING.md) — Import, validate, sync workflows
 - [GIT-DISCIPLINE.md](./docs/GIT-DISCIPLINE.md) — Detailed git workflow
+
+**Bible Reader Docs (merged feature):**
+- [PRD](./docs/bible-reader/prd.md) — Product requirements for Reader mode
+- [Architecture](./docs/bible-reader/architecture.md) — Reader system architecture
+- [Test Coverage](./docs/bible-reader/test-coverage.md) — Test strategy and gaps
+- [UI Mockup Analysis](./docs/bible-reader/ui-mockup-analysis.md) — Design specifications
+- [Merge Analysis](./docs/bible-reader/merge-analysis.md) — Why and how we merged
 
 **Essential Skills:**
 - Explore `C:\Users\BCS_Support\.claude\skills\superpowers\skills` — Specialized capabilities and refined workflows for domain-specific tasks. Load relevant skill files before generating responses on applicable topics.

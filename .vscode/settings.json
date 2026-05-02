@@ -1,5 +1,15 @@
 {
 	"files.associations": {
 		"*.css": "tailwindcss"
+	},
+	"github.copilot.enable": {
+		"*": true
+	},
+	"github.copilot.mcp.servers": {
+		"playwright": {
+			"command": "playwright",
+			"args": ["run", "--ui"],
+			"enabled": true
+		}
 	}
 }

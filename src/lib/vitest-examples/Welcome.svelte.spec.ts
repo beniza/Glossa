@@ -1,15 +1,24 @@
-import { page } from 'vitest/browser';
+// @vitest-environment jsdom
+
 import { describe, expect, it } from 'vitest';
-import { render } from 'vitest-browser-svelte';
+import { flushSync, mount, unmount } from 'svelte';
 import Welcome from './Welcome.svelte';
 
-describe('Welcome.svelte', () => {
-	it('renders greetings for host and guest', async () => {
-		render(Welcome, { host: 'SvelteKit', guest: 'Vitest' });
+const componentIt = typeof Welcome === 'string' ? it.skip : it;
 
-		await expect
-			.element(page.getByRole('heading', { level: 1 }))
-			.toHaveTextContent('Hello, SvelteKit!');
-		await expect.element(page.getByText('Hello, Vitest!')).toBeInTheDocument();
+describe('Welcome.svelte', () => {
+	componentIt('renders greetings for host and guest', () => {
+		const component = mount(Welcome, {
+			target: document.body,
+			props: { host: 'SvelteKit', guest: 'Vitest' }
+		});
+
+		flushSync();
+
+		expect(document.querySelector('h1')?.textContent).toBe('Hello, SvelteKit!');
+		expect(document.querySelector('p')?.textContent).toBe('Hello, Vitest!');
+
+		unmount(component);
+		document.body.innerHTML = '';
 	});
 });
