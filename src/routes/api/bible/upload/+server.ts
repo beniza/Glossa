@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Bible Upload API Endpoint
  * POST /api/bible/upload
  * 
@@ -61,7 +61,10 @@ throw error(400, 'Invalid bibleId. Only alphanumeric, hyphens, and underscores a
 
 // Check if Bible already exists
 const dataDir = process.env.DATA_DIR || 'data';
-const bibleDir = join(process.cwd(), dataDir, 'bibles', sanitizedBibleId);
+// Handle both absolute and relative paths
+const bibleDir = dataDir.startsWith('/') || /^[A-Za-z]:/.test(dataDir)
+? join(dataDir, 'bibles', sanitizedBibleId)  // Absolute path
+: join(process.cwd(), dataDir, 'bibles', sanitizedBibleId);  // Relative path
 
 if (existsSync(bibleDir)) {
 throw error(409, `Bible with ID "${sanitizedBibleId}" already exists. Please use a different ID or delete the existing Bible first.`);
