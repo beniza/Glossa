@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 import GoldenLayout from 'svelte-golden-layout';
 import type { LayoutConfig } from 'golden-layout';
 import 'svelte-golden-layout/css/themes/goldenlayout-light-theme.css';
@@ -30,9 +30,9 @@ content: [
 {
 type: 'component',
 componentType: 'BiblePanel',
-title: 'Bible 1',
+title: 'Malayalam OV 1910 - Genesis',
 componentState: {
-bibleId: null,
+bibleId: 'malov1910',
 bookCode: 'GEN',
 chapter: 1
 }
@@ -40,10 +40,10 @@ chapter: 1
 {
 type: 'component',
 componentType: 'BiblePanel',
-title: 'Bible 2',
+title: 'Malayalam OV 1910 - Exodus',
 componentState: {
-bibleId: null,
-bookCode: 'GEN',
+bibleId: 'malov1910',
+bookCode: 'EXO',
 chapter: 1
 }
 }

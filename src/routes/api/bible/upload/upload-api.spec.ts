@@ -276,6 +276,67 @@ describe('POST /api/bible/upload', () => {
 			expect(response.status).toBe(200);
 			expect(data.books).toEqual(['GEN']);
 		});
+		
+		it('should handle .sfm extension (Standard Format Markers)', async () => {
+			// Arrange
+			const zipBuffer = createZipBuffer({
+				'GEN.sfm': SAMPLE_GENESIS_USFM
+			});
+			const file = createMockFile(zipBuffer, 'sfm-lowercase.zip');
+			
+			const formData = new FormData();
+			formData.append('file', file);
+			
+			// Act
+			const response = await callUploadAPI(formData);
+			const data = await response.json();
+			
+			// Assert
+			expect(response.status).toBe(200);
+			expect(data.books).toEqual(['GEN']);
+			expect(existsSync(join(TEST_BIBLES_DIR, data.bibleId, 'GEN.usfm'))).toBe(true);
+		});
+		
+		it('should handle .SFM extension (uppercase)', async () => {
+			// Arrange
+			const zipBuffer = createZipBuffer({
+				'EXO.SFM': SAMPLE_EXODUS_USFM
+			});
+			const file = createMockFile(zipBuffer, 'sfm-uppercase.zip');
+			
+			const formData = new FormData();
+			formData.append('file', file);
+			
+			// Act
+			const response = await callUploadAPI(formData);
+			const data = await response.json();
+			
+			// Assert
+			expect(response.status).toBe(200);
+			expect(data.books).toEqual(['EXO']);
+		});
+		
+		it('should handle mixed .usfm and .sfm files in same zip', async () => {
+			// Arrange
+			const zipBuffer = createZipBuffer({
+				'GEN.usfm': SAMPLE_GENESIS_USFM,
+				'EXO.sfm': SAMPLE_EXODUS_USFM,
+				'MAT.SFM': SAMPLE_MATTHEW_USFM
+			});
+			const file = createMockFile(zipBuffer, 'mixed-extensions.zip');
+			
+			const formData = new FormData();
+			formData.append('file', file);
+			
+			// Act
+			const response = await callUploadAPI(formData);
+			const data = await response.json();
+			
+			// Assert
+			expect(response.status).toBe(200);
+			expect(data.bookCount).toBe(3);
+			expect(data.books).toEqual(['EXO', 'GEN', 'MAT']);
+		});
 	});
 	
 	describe('❌ Invalid Input Handling', () => {

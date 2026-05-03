@@ -88,10 +88,10 @@ if (zipEntries.length === 0) {
 throw error(400, 'Empty zip file. Please upload a zip containing USFM files.');
 }
 
-// Filter for USFM files
+// Filter for USFM files (.usfm, .USFM, .sfm, .SFM)
 const usfmFiles = zipEntries.filter(entry => {
 return !entry.isDirectory && 
-       (entry.entryName.endsWith('.usfm') || entry.entryName.endsWith('.USFM'));
+       /\.(usfm|sfm)$/i.test(entry.entryName);
 });
 
 if (usfmFiles.length === 0) {
